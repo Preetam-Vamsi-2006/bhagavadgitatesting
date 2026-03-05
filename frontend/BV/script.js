@@ -4,6 +4,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const outputText = document.getElementById('outputText');
     const audioBtn = document.getElementById('playAudioBtn');
     
+    // Read URL parameters and populate the input field
+    const urlParams = new URLSearchParams(window.location.search);
+    const textParam = urlParams.get('text');
+    if (textParam) {
+        document.getElementById('userName').value = decodeURIComponent(textParam);
+    }
+    
     let currentMessage = "";
     
     form.addEventListener('submit', async(e) => {
